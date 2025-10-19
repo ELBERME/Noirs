@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOIRS | Colección Hombre</title>
+    <link rel="stylesheet" href="hombre.css">
+    
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- CABECERA -->
+    <header class="cabecera">
+        <a href="index.html" class="logo">NOIRS</a>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="hombre.html">Hombre</a>
+            <a href="mujer.html">Mujer</a>
+            <a href="SobreNosotros.html"> Sobre Nosotros</a>
+        </nav>
+    </header>
+
+    <!-- CARRUSEL DE DESTACADOS -->
+    <section class="carrusel-contenedor">
+        <h2 class="titulo-seccion">Productos Destacados</h2>
+        <div class="carrusel" id="carrusel">
+            <!-- Productos insertados dinámicamente -->
+        </div>
+    </section>
+
+    <!-- SECCIÓN CAMISAS -->
+    <section class="seccion-productos">
+        <h2 class="titulo-seccion">Camisas</h2>
+        <div class="grilla" id="camisas"></div>
+    </section>
+
+    <!-- SECCIÓN PANTALONES -->
+    <section class="seccion-productos">
+        <h2 class="titulo-seccion">Pantalones</h2>
+        <div class="grilla" id="pantalones"></div>
+    </section>
+
+    <!-- SECCIÓN ZAPATOS -->
+    <section class="seccion-productos">
+        <h2 class="titulo-seccion">Zapatos</h2>
+        <div class="grilla" id="zapatos"></div>
+    </section>
+
+    <!-- MODAL DE PRODUCTO -->
+    <div class="modal" id="modal">
+        <div class="modal-contenido">
+            <span class="cerrar-modal" id="cerrarModal">&times;</span>
+            <img id="modalImagen" alt="Producto">
+            <div class="modal-info">
+                <h3 id="modalTitulo"></h3>
+                <p id="modalDescripcion"></p>
+                <p id="modalMateriales"></p>
+                <div id="modalPrecio"></div>
+                <button id="agregarCarrito">Agregar al carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOTÓN FLOTANTE CARRITO -->
+    <div class="carrito-flotante" id="carritoFlotante">
+        🛒
+        <span id="contadorCarrito">0</span>
+    </div>
+
+    <!-- PANEL DEL CARRITO -->
+    <div class="panel-carrito" id="panelCarrito">
+        <h3>Tu Carrito</h3>
+        <ul id="listaCarrito"></ul>
+        <div id="totalCarrito"></div>
+        <button id="vaciarCarrito">Vaciar carrito</button>
+    </div>
+
+    <script src="productos.js"></script>
+</body>
+</html>

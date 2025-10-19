@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOIRS | Colección Premium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;700;900&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-oro: #d4af37;
+            --color-oro-oscuro: #b8941f;
+            --color-negro: #000000;
+            --color-gris-oscuro: #1a1a1a;
+            --color-gris: #2c2c2c;
+            --color-blanco: #ffffff;
+            --color-champagne: #f7e7ce;
+            --fuente-lujo: 'Cormorant Garamond', serif;
+            --fuente-titulos: 'Playfair Display', serif;
+            --fuente-texto: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--fuente-texto);
+            background: var(--color-negro);
+            color: var(--color-blanco);
+            overflow-x: hidden;
+        }
+
+        /* CABECERA PREMIUM */
+        .cabecera-premium {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--color-oro);
+            box-shadow: 0 5px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-premium {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 25px 50px;
+        }
+
+        .logo-premium {
+            font-family: var(--fuente-titulos);
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-decoration: none;
+            background: linear-gradient(135deg, var(--color-oro) 0%, #fff8dc 50%, var(--color-oro) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .badge-premium {
+            position: absolute;
+            top: -10px;
+            right: -40px;
+            background: var(--color-oro);
+            color: var(--color-negro);
+            padding: 3px 10px;
+            font-size: 0.4rem;
+            border-radius: 20px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .nav-links-premium {
+            display: flex;
+            list-style: none;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .nav-links-premium a {
+            text-decoration: none;
+            color: var(--color-champagne);
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links-premium a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-oro), var(--color-champagne));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links-premium a:hover {
+            color: var(--color-oro);
+        }
+
+        .nav-links-premium a:hover::after {
+            width: 100%;
+        }
+
+        /* HERO PREMIUM */
+        .hero-premium {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+        }
+
+        .hero-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+            animation: pulso 8s ease-in-out infinite;
+        }
+
+        @keyframes pulso {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        .hero-content-premium {
+            text-align: center;
+            z-index: 10;
+            max-width: 900px;
+            padding: 0 30px;
+        }
+
+        .hero-subtitle {
+            font-family: var(--fuente-lujo);
+            font-size: 1.5rem;
+            color: var(--color-oro);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            font-weight: 300;
+            animation: aparecer 1s ease-out;
+        }
+
+        .hero-title {
+            font-family: var(--fuente-titulos);
+            font-size: 7rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffffff 0%, var(--color-oro) 50%, #ffffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 30px;
+            line-height: 1.1;
+            animation: aparecer 1.2s ease-out;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+        }
+
+        .hero-description {
+            font-family: var(--fuente-lujo);
+            font-size: 1.8rem;
+            color: var(--color-champagne);
+            margin-bottom: 50px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            animation: aparecer 1.4s ease-out;
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .boton-explorar {
+            display: inline-block;
+            padding: 20px 60px;
+            background: linear-gradient(135deg, var(--color-oro) 0%, var(--color-oro-oscuro) 100%);
+            color: var(--color-negro);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.4);
+            position: relative;
+            overflow: hidden;
+            animation: aparecer 1.6s ease-out;
+        }
+
+        .boton-explorar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .boton-explorar:hover::before {
+            left: 100%;
+        }
+
+        .boton-explorar:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 50px rgba(212, 175, 55, 0.6);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--color-oro);
+            font-size: 2rem;
+            animation: flotar 2s ease-in-out infinite;
+        }
+
+        @keyframes flotar {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        /* SECCIÓN FILTROS PREMIUM */
+        .filtros-premium {
+            background: var(--color-gris-oscuro);
+            padding: 40px 50px;
+            border-top: 1px solid var(--color-oro);
+            border-bottom: 1px solid var(--color-oro);
+            position: sticky;
+            top: 90px;
+            z-index: 900;
+            backdrop-filter: blur(10px);
+        }
+
+        .filtros-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filtro-btn {
+            background: transparent;
+            border: 2px solid var(--color-oro);
+            color: var(--color-oro);
+            padding: 15px 35px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 50px;
+            font-family: var(--fuente-texto);
+        }
+
+        .filtro-btn:hover,
+        .filtro-btn.activo {
+            background: var(--color-oro);
+            color: var(--color-negro);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        /* PRODUCTOS PREMIUM */
+        .seccion-productos-premium {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 100px 50px;
+        }
+
+        .titulo-categoria {
+            font-family: var(--fuente-titulos);
+            font-size: 4rem;
+            text-align: center;
+            margin-bottom: 80px;
+            background: linear-gradient(135deg, var(--color-oro) 0%, #ffffff 50%, var(--color-oro) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 300;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        .grid-premium {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 60px;
+        }
+
+        .producto-premium {
+            position: relative;
+            background: var(--color-gris-oscuro);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            cursor: pointer;
+        }
+
+        .producto-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            transition: left 0.6s ease;
+            z-index: 1;
+        }
+
+        .producto-premium:hover::before {
+            left: 100%;
+        }
+
+        .producto-premium:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 80px rgba(212, 175, 55, 0.4);
+            border-color: var(--color-oro);
+        }
+
+        .imagen-premium {
+            position: relative;
+            height: 550px;
+            overflow: hidden;
+        }
+
+        .imagen-premium img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .producto-premium:hover .imagen-premium img {
+            transform: scale(1.1);
+        }
+
+        .badge-exclusivo {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: var(--color-oro);
+            color: var(--color-negro);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            z-index: 10;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.5);
+        }
+
+        .overlay-premium {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, transparent 100%);
+            padding: 40px 30px;
+            transform: translateY(60%);
+            transition: transform 0.5s ease;
+        }
+
+        .producto-premium:hover .overlay-premium {
+            transform: translateY(0);
+        }
+
+        .info-premium {
+            padding: 40px;
+            background: linear-gradient(135deg, var(--color-gris-oscuro) 0%, var(--color-gris) 100%);
+        }
+
+        .producto-premium h3 {
+            font-family: var(--fuente-titulos);
+            font-size: 2rem;
+            color: var(--color-blanco);
+            margin-bottom: 15px;
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
+
+        .diseñador {
+            font-family: var(--fuente-lujo);
+            color: var(--color-oro);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+
+        .descripcion-premium {
+            color: var(--color-champagne);
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+
+        .materiales-premium {
+            color: var(--color-champagne);
+            font-size: 0.85rem;
+            margin-bottom: 25px;
+            padding: 15px;
+            background: rgba(212, 175, 55, 0.05);
+            border-left: 3px solid var(--color-oro);
+            border-radius: 5px;
+        }
+
+        .precio-premium {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .precio-valor {
+            font-family: var(--fuente-titulos);
+            font-size: 2.5rem;
+            color: var(--color-oro);
+            font-weight: 700;
+        }
+
+        .precio-detalle {
+            font-size: 0.75rem;
+            color: var(--color-champagne);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .boton-premium {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--color-oro) 0%, var(--color-oro-oscuro) 100%);
+            color: var(--color-negro);
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .boton-premium:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
+        }
+
+        /* CARACTERÍSTICAS EXCLUSIVAS */
+        .seccion-exclusiva {
+            background: linear-gradient(135deg, var(--color-gris-oscuro) 0%, var(--color-negro) 100%);
+            padding: 120px 50px;
+            border-top: 1px solid var(--color-oro);
+            border-bottom: 1px solid var(--color-oro);
+            margin: 100px 0;
+        }
+
+        .grid-exclusivo {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .item-exclusivo {
+            text-align: center;
+            padding: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .item-exclusivo:hover {
+            transform: translateY(-10px);
+        }
+
+        .icono-exclusivo {
+            font-size: 4rem;
+            margin-bottom: 30px;
+            display: inline-block;
+            background: linear-gradient(135deg, var(--color-oro) 0%, #ffffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .item-exclusivo h3 {
+            font-family: var(--fuente-titulos);
+            font-size: 1.8rem;
+            color: var(--color-oro);
+            margin-bottom: 20px;
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
+
+        .item-exclusivo p {
+            color: var(--color-champagne);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1200px) {
+            .grid-premium {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: 40px;
+            }
+
+            .hero-title {
+                font-size: 5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-premium {
+                padding: 20px 30px;
+            }
+
+            .logo-premium {
+                font-size: 1.8rem;
+            }
+
+            .nav-links-premium {
+                gap: 20px;
+            }
+
+            .nav-links-premium a {
+                font-size: 0.75rem;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-description {
+                font-size: 1.2rem;
+            }
+
+            .grid-premium {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .seccion-productos-premium {
+                padding: 60px 30px;
+            }
+
+            .titulo-categoria {
+                font-size: 2.5rem;
+            }
+
+            .filtros-premium {
+                padding: 30px 20px;
+            }
+
+            .filtros-container {
+                gap: 15px;
+            }
+
+            .filtro-btn {
+                padding: 12px 25px;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* ANIMACIONES ESPECIALES */
+        @keyframes brillo {
+            0%, 100% {
+                text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(212, 175, 55, 0.8), 0 0 30px rgba(212, 175, 55, 0.6);
+            }
+        }
+
+        .logo-premium {
+            animation: brillo 3s ease-in-out infinite;
+        }
+
+        /* MODAL PREMIUM */
+        .modal-premium {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-contenido-premium {
+            background: var(--color-gris-oscuro);
+            border-radius: 20px;
+            max-width: 1000px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 2px solid var(--color-oro);
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.5);
+        }
+
+        .cerrar-modal-premium {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            color: var(--color-oro);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .cerrar-modal-premium:hover {
+            transform: rotate(90deg);
+            color: var(--color-blanco);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CABECERA PREMIUM -->
+    <header class="cabecera-premium">
+        <nav class="nav-premium">
+            <a href="index.html" class="logo-premium">
+                NOIRS
+                <span class="badge-premium">PREMIUM</span>
+            </a>
+            <ul class="nav-links-premium">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="hombre.html">Hombre</a></li>
+                <li><a href="mujer.html">Mujer</a></li>
+                <li><a href="NOIRS.html">Premium</a></li>
+                <li><a href="SobreNosotros.html">Sobre Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO PREMIUM -->
+    <section class="hero-premium">
+        <div class="hero-content-premium">
+            <p class="hero-subtitle">Colección Exclusiva</p>
+            <h1 class="hero-title">PREMIUM</h1>
+            <p class="hero-description">Donde el lujo se encuentra con la perfección</p>
+            <a href="#productos" class="boton-explorar">Explorar Colección</a>
+        </div>
+        <div class="scroll-indicator">↓</div>
+    </section>
+
+    <!-- FILTROS PREMIUM -->
+    <div class="filtros-premium">
+        <div class="filtros-container">
+            <button class="filtro-btn activo" onclick="filtrarCategoria('todos')">Todos</button>
+            <button class="filtro-btn" onclick="filtrarCategoria('hombre')">Hombre</button>
+            <button class="filtro-btn" onclick="filtrarCategoria('mujer')">Mujer</button>
+            <button class="filtro-btn" onclick="filtrarCategoria('zapatos')">Calzado</button>
+            <button class="filtro-btn" onclick="filtrarCategoria('accesorios')">Accesorios</button>
+        </div>
+    </div>
+
+    <!-- PRODUCTOS PREMIUM -->
+    <section class="seccion-productos-premium" id="productos">
+        <div class="grid-premium" id="gridProductos">
+            <!-- Los productos se cargarán dinámicamente aquí -->
+        </div>
+    </section>
+
+    <!-- CARACTERÍSTICAS EXCLUSIVAS -->
+    <section class="seccion-exclusiva">
+        <div class="grid-exclusivo">
+            <div class="item-exclusivo">
+                <div class="icono-exclusivo">👑</div>
+                <h3>Edición Limitada</h3>
+                <p>Cada pieza es única y producida en cantidades extremadamente limitadas para garantizar exclusividad absoluta.</p>
+            </div>
+            <div class="item-exclusivo">
+                <div class="icono-exclusivo">✨</div>
+                <h3>Diseñadores de Élite</h3>
+                <p>Colaboraciones con los diseñadores más prestigiosos del mundo de la alta costura internacional.</p>
+            </div>
+            <div class="item-exclusivo">
+                <div class="icono-exclusivo">💎</div>
+                <h3>Materiales Excepcionales</h3>
+                <p>Telas importadas, cuero premium y materiales nobles seleccionados meticulosamente.</p>
+            </div>
+            <div class="item-exclusivo">
+                <div class="icono-exclusivo">🎯</div>
+                <h3>Personalización Total</h3>
+                <p>Servicio de adaptación personalizada por nuestros maestros sastres para un ajuste perfecto.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL PREMIUM -->
+    <div class="modal-premium" id="modalPremium">
+        <div class="modal-contenido-premium">
+            <span class="cerrar-modal-premium" onclick="cerrarModal()">&times;</span>
+            <div id="contenidoModal"></div>
+        </div>
+    </div>
+
+    <script>
+        // Productos Premium de alta gama
+        const productosPremium = [
+            {
+                id: 1,
+                nombre: "Traje Ejecutivo Armani",
+                diseñador: "Giorgio Armani",
+                descripcion: "Traje de dos piezas confeccionado en lana Super 150s italiana. Corte slim fit con detalles en solapa de pico y forro de seda.",
+                materiales: "Lana Super 150s italiana, Forro de seda 100%, Botones de nácar",
+                precio: 3500000,
+                imagen: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&h=1000&fit=crop",
+                categoria: "hombre",
+                exclusivo: true
+            },
+            {
+                id: 7,
+                nombre: "Stilettos Manolo Blahnik",
+                diseñador: "Manolo Blahnik",
+                descripcion: "Stilettos en satén con aplicaciones de cristal. Diseño icónico que ha definido la elegancia femenina durante décadas. Altura de 10cm.",
+                materiales: "Satén italiano, Cristales Swarovski, Suela de cuero",
+                precio: 3200000,
+                imagen: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=800&h=1000&fit=crop",
+                categoria: "zapatos",
+                exclusivo: true
+            },
+            {
+                id: 8,
+                nombre: "Pantalón Sastrería Brioni",
+                diseñador: "Brioni Roma",
+                descripcion: "Pantalón de vestir en lana tropical. Confección artesanal romana con pliegues dobles y ajuste perfecto. Ideal para cualquier ocasión formal.",
+                materiales: "Lana tropical Super 130s, Forro italiano, Costuras reforzadas a mano",
+                precio: 1500000,
+                imagen: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=800&h=1000&fit=crop",
+                categoria: "hombre",
+                exclusivo: true
+            },
+            {
+                id: 9,
+                nombre: "Blusa Chanel Tweed",
+                diseñador: "Chanel Paris",
+                descripcion: "Blusa en tweed bouclé característico de Chanel. Ribetes en grosgrain y botones con el logo CC. Una pieza atemporal que trasciende tendencias.",
+                materiales: "Tweed bouclé francés, Ribetes grosgrain, Botones logo CC dorados",
+                precio: 3800000,
+                imagen: "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=800&h=1000&fit=crop",
+                categoria: "mujer",
+                exclusivo: true
+            },
+            {
+                id: 10,
+                nombre: "Mocasines Gucci Horsebit",
+                diseñador: "Gucci Milano",
+                descripcion: "Icónicos mocasines Horsebit en cuero suave con herraje distintivo en tono dorado. Símbolo eterno de elegancia casual italiana.",
+                materiales: "Cuero premium italiano, Herraje Horsebit dorado, Suela de cuero",
+                precio: 2400000,
+                imagen: "https://images.unsplash.com/photo-1533867617858-e7b97e060509?w=800&h=1000&fit=crop",
+                categoria: "zapatos",
+                exclusivo: true
+            },
+            {
+                id: 11,
+                nombre: "Smoking Tom Ford",
+                diseñador: "Tom Ford",
+                descripcion: "Smoking contemporáneo en lana mohair con detalles de solapa en seda. Corte moderno que redefine la elegancia masculina nocturna.",
+                materiales: "Lana mohair, Solapa seda grosgrain, Forro jacquard",
+                precio: 4800000,
+                imagen: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&h=1000&fit=crop",
+                categoria: "hombre",
+                exclusivo: true
+            },
+            {
+                id: 12,
+                nombre: "Cartera Bottega Veneta",
+                diseñador: "Bottega Veneta",
+                descripcion: "Cartera con el icónico tejido Intrecciato. Artesanía italiana que combina tradición con diseño contemporáneo minimalista.",
+                materiales: "Cuero napa tejido Intrecciato, Forro suave, Herrajes discretos",
+                precio: 2900000,
+                imagen: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&h=1000&fit=crop",
+                categoria: "accesorios",
+                exclusivo: true
+            },
+            {
+                id: 13,
+                nombre: "Vestido de Gala Valentino",
+                diseñador: "Valentino Garavani",
+                descripcion: "Vestido de noche en seda italiana con bordados a mano y detalles en pedrería Swarovski. Diseño atemporal que combina elegancia clásica con modernidad.",
+                materiales: "Seda italiana 100%, Bordados a mano, Cristales Swarovski",
+                precio: 4200000,
+                imagen: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=800&h=1000&fit=crop",
+                categoria: "mujer",
+                exclusivo: true
+            },
+            {
+                id: 14,
+                nombre: "Zapatos Oxford Berluti",
+                diseñador: "Berluti Paris",
+                descripcion: "Zapatos Oxford hechos a mano con la técnica Patina Berluti. Cuero Venezia con acabado artesanal único que envejece con elegancia.",
+                materiales: "Cuero Venezia premium, Suela de cuero, Construcción Goodyear",
+                precio: 2800000,
+                imagen: "https://ae01.alicdn.com/kf/S7dbd49061eb1433a9260180386fd96b44.jpg",
+                categoria: "zapatos",
+                exclusivo: true
+            },
+            {
+                id: 15,
+                nombre: "Abrigo Cachemira Loro Piana",
+                diseñador: "Loro Piana",
+                descripcion: "Abrigo largo en cachemira baby de Mongolia. Tejido suave y ligero con forro de seda. Elegancia discreta para el invierno más sofisticado.",
+                materiales: "Cachemira baby 100% Mongolia, Forro seda, Botones cuerno natural",
+                precio: 5500000,
+                imagen: "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=800&h=1000&fit=crop",
+                categoria: "mujer",
+                exclusivo: true
+            },
+            {
+                id: 16,
+                nombre: "Bolso Kelly Hermès",
+                diseñador: "Hermès Paris",
+                descripcion: "Icónico bolso Kelly 32 en cuero Epsom. Confección artesanal por maestros marroquineros con más de 18 horas de trabajo manual.",
+                materiales: "Cuero Epsom premium, Herrajes chapados en oro, Forro piel de cabra",
+                precio: 8500000,
+                imagen: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=800&h=1000&fit=crop",
+                categoria: "accesorios",
+                exclusivo: true
+            },
+            {
+                id: 17,
+                nombre: "Camisa Seda Kiton",
+                diseñador: "Kiton Napoli",
+                descripcion: "Camisa en seda pura napolitana con acabado a mano. Cada botón cosido individualmente, cuello y puños con entretela tradicional.",
+                materiales: "Seda 100% italiana, Botones madreperla, Costuras francesas a mano",
+                precio: 1800000,
+                imagen: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=800&h=1000&fit=crop",
+                categoria: "hombre",
+                exclusivo: true
+            },
+        ];
+
+        let categoriaActual = 'todos';
+
+        // Cargar productos al iniciar
+        window.addEventListener('DOMContentLoaded', () => {
+            mostrarProductos(productosPremium);
+        });
+
+        // Mostrar productos
+        function mostrarProductos(productos) {
+            const grid = document.getElementById('gridProductos');
+            grid.innerHTML = '';
+
+            productos.forEach(producto => {
+                const div = document.createElement('div');
+                div.className = 'producto-premium';
+                div.setAttribute('data-categoria', producto.categoria);
+                
+                div.innerHTML = `
+                    <div class="imagen-premium">
+                        <img src="${producto.imagen}" alt="${producto.nombre}">
+                        ${producto.exclusivo ? '<div class="badge-exclusivo">Exclusivo</div>' : ''}
+                        <div class="overlay-premium">
+                            <button class="boton-premium" onclick="abrirModal(${producto.id})">
+                                Ver Detalles
+                            </button>
+                        </div>
+                    </div>
+                    <div class="info-premium">
+                        <h3>${producto.nombre}</h3>
+                        <p class="diseñador">by ${producto.diseñador}</p>
+                        <p class="descripcion-premium">${producto.descripcion.substring(0, 120)}...</p>
+                        <div class="precio-premium">
+                            <div>
+                                <div class="precio-valor">${producto.precio.toLocaleString()}</div>
+                                <div class="precio-detalle">COP</div>
+                            </div>
+                        </div>
+                        <button class="boton-premium" onclick="abrirModal(${producto.id})">
+                            Solicitar
+                        </button>
+                    </div>
+                `;
+                
+                grid.appendChild(div);
+            });
+        }
+
+        // Filtrar por categoría
+        function filtrarCategoria(categoria) {
+            categoriaActual = categoria;
+            
+            // Actualizar botones activos
+            document.querySelectorAll('.filtro-btn').forEach(btn => {
+                btn.classList.remove('activo');
+            });
+            event.target.classList.add('activo');
+
+            // Filtrar productos
+            const productosFiltrados = categoria === 'todos' 
+                ? productosPremium 
+                : productosPremium.filter(p => p.categoria === categoria);
+            
+            mostrarProductos(productosFiltrados);
+
+            // Scroll suave a productos
+            document.getElementById('productos').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Abrir modal con detalles del producto
+        function abrirModal(id) {
+            const producto = productosPremium.find(p => p.id === id);
+            if (!producto) return;
+
+            const modal = document.getElementById('modalPremium');
+            const contenido = document.getElementById('contenidoModal');
+
+            contenido.innerHTML = `
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0;">
+                    <div style="position: relative;">
+                        <img src="${producto.imagen}" alt="${producto.nombre}" 
+                                style="width: 100%; height: 100%; object-fit: cover; min-height: 600px;">
+                        ${producto.exclusivo ? '<div class="badge-exclusivo" style="position: absolute; top: 30px; left: 30px;">Exclusivo</div>' : ''}
+                    </div>
+                    <div style="padding: 60px 50px; background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);">
+                        <h2 style="font-family: var(--fuente-titulos); font-size: 3rem; color: var(--color-oro); margin-bottom: 15px; font-weight: 400; letter-spacing: 2px;">
+                            ${producto.nombre}
+                        </h2>
+                        <p style="font-family: var(--fuente-lujo); color: var(--color-champagne); font-size: 1.3rem; margin-bottom: 30px; font-style: italic;">
+                            by ${producto.diseñador}
+                        </p>
+                        <p style="color: var(--color-champagne); line-height: 2; margin-bottom: 30px; font-size: 1.05rem;">
+                            ${producto.descripcion}
+                        </p>
+                        <div class="materiales-premium" style="margin-bottom: 30px;">
+                            <strong style="color: var(--color-oro); display: block; margin-bottom: 10px;">Materiales Premium:</strong>
+                            ${producto.materiales}
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; padding: 25px; background: rgba(212, 175, 55, 0.1); border-radius: 15px; border: 2px solid var(--color-oro);">
+                            <div>
+                                <div style="font-family: var(--fuente-titulos); font-size: 3rem; color: var(--color-oro); font-weight: 700;">
+                                    ${producto.precio.toLocaleString()}
+                                </div>
+                                <div style="font-size: 0.85rem; color: var(--color-champagne); text-transform: uppercase; letter-spacing: 1px;">
+                                    COP
+                                </div>
+                            </div>
+                        </div>
+                        <button class="boton-premium" onclick="solicitarProducto(${producto.id})" style="margin-bottom: 15px;">
+                            Solicitar Ahora
+                        </button>
+                        <p style="text-align: center; color: var(--color-champagne); font-size: 0.85rem; font-style: italic;">
+                            ✨ Entrega en 7-14 días • Envío asegurado incluido
+                        </p>
+                    </div>
+                </div>
+            `;
+
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Cerrar modal
+        function cerrarModal() {
+            const modal = document.getElementById('modalPremium');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Cerrar modal al hacer clic fuera
+        window.addEventListener('click', (e) => {
+            const modal = document.getElementById('modalPremium');
+            if (e.target === modal) {
+                cerrarModal();
+            }
+        });
+
+        // Solicitar producto
+        function solicitarProducto(id) {
+            const producto = productosPremium.find(p => p.id === id);
+            
+            // Guardar producto en localStorage
+            const solicitud = {
+                producto: producto,
+                fecha: new Date().toISOString()
+            };
+            
+            localStorage.setItem('solicitudPremium', JSON.stringify(solicitud));
+            
+            // Mostrar notificación
+            const notif = document.createElement('div');
+            notif.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: linear-gradient(135deg, var(--color-oro) 0%, var(--color-oro-oscuro) 100%);
+                color: var(--color-negro);
+                padding: 40px 60px;
+                border-radius: 20px;
+                font-size: 1.2rem;
+                font-weight: 700;
+                z-index: 3000;
+                box-shadow: 0 20px 60px rgba(212, 175, 55, 0.5);
+                text-align: center;
+                letter-spacing: 2px;
+            `;
+            notif.innerHTML = `
+                <div style="font-size: 3rem; margin-bottom: 15px;">✨</div>
+                <div>¡SOLICITUD RECIBIDA!</div>
+                <div style="font-size: 0.9rem; font-weight: 400; margin-top: 15px; letter-spacing: 1px;">
+                    Nos pondremos en contacto contigo pronto
+                </div>
+            `;
+            document.body.appendChild(notif);
+            
+            setTimeout(() => {
+                notif.remove();
+                cerrarModal();
+                // Redirigir a contacto
+                window.location.href = 'contacto.html';
+            }, 2500);
+        }
+
+        // Scroll suave para el botón de explorar
+        document.querySelector('.boton-explorar')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('productos').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+
+        // Animación de aparición al hacer scroll
+        const observador = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        window.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.producto-premium').forEach(producto => {
+                producto.style.opacity = '0';
+                producto.style.transform = 'translateY(50px)';
+                producto.style.transition = 'all 0.6s ease';
+                observador.observe(producto);
+            });
+        });
+    </script>
+</body>

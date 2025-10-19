@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOIRS | Nosotros</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-principal: #1a1a1a;
+            --color-secundario: #2c2c2c;
+            --color-acento: #d4af37;
+            --color-texto-claro: #f8f8f8;
+            --color-texto-oscuro: #333333;
+            --color-gris-claro: #f5f5f5;
+            --color-gris-medio: #8a8a8a;
+            --color-blanco: #ffffff;
+            --fuente-titulos: 'Playfair Display', serif;
+            --fuente-texto: 'Inter', sans-serif;
+            --sombra-suave: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --sombra-elegante: 0 20px 60px rgba(0, 0, 0, 0.15);
+            --transicion-suave: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--fuente-texto);
+            background-color: var(--color-gris-claro);
+            color: var(--color-texto-oscuro);
+            line-height: 1.7;
+        }
+
+        /* CABECERA */
+        .cabecera-principal {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--sombra-suave);
+        }
+
+        .navegacion-principal {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .logotipo-marca {
+            font-family: var(--fuente-titulos);
+            font-size: 2rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--color-principal);
+            letter-spacing: -0.5px;
+        }
+
+        .enlaces-navegacion {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .enlaces-navegacion a {
+            text-decoration: none;
+            color: var(--color-texto-oscuro);
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transicion-suave);
+            position: relative;
+            padding: 10px 0;
+        }
+
+        .enlaces-navegacion a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--color-acento);
+            transition: var(--transicion-suave);
+            transform: translateX(-50%);
+        }
+
+        .enlaces-navegacion a:hover {
+            color: var(--color-principal);
+        }
+
+        .enlaces-navegacion a:hover::before {
+            width: 100%;
+        }
+
+        .submenu {
+            position: relative;
+        }
+
+        .submenu-opciones {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            list-style: none;
+            padding: 10px 0;
+            min-width: 150px;
+            border-radius: 5px;
+        }
+
+        .submenu-opciones li {
+            padding: 8px 15px;
+        }
+
+        .submenu-opciones li a {
+            color: black;
+            text-decoration: none;
+            font-weight: 500;
+            text-transform: none;
+        }
+
+        .submenu-opciones li:hover {
+            background: #f0f0f0;
+        }
+
+        .submenu:hover .submenu-opciones {
+            display: block;
+        }
+
+        /* SECCIÓN HERO */
+        .hero-nosotros {
+            margin-top: 80px;
+            height: 50vh;
+            background: linear-gradient(135deg, var(--color-principal) 0%, var(--color-secundario) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--color-texto-claro);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-nosotros::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="%23d4af37" opacity="0.1"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-nosotros h1 {
+            font-family: var(--fuente-titulos);
+            font-size: 4rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            z-index: 1;
+            position: relative;
+        }
+
+        /* CONTENEDOR PRINCIPAL */
+        .contenedor {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 30px;
+        }
+
+        /* HISTORIA */
+        .seccion-historia {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 100px;
+        }
+
+        .historia-imagen {
+            width: 100%;
+            height: 500px;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: var(--sombra-elegante);
+        }
+
+        .historia-contenido h2 {
+            font-family: var(--fuente-titulos);
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: var(--color-principal);
+            font-weight: 400;
+        }
+
+        .historia-contenido p {
+            font-size: 1.1rem;
+            line-height: 2;
+            color: var(--color-gris-medio);
+            margin-bottom: 20px;
+        }
+
+        /* CARACTERÍSTICAS */
+        .seccion-caracteristicas {
+            background: var(--color-blanco);
+            padding: 80px 60px;
+            border-radius: 20px;
+            margin-bottom: 100px;
+            box-shadow: var(--sombra-suave);
+        }
+
+        .seccion-caracteristicas h2 {
+            font-family: var(--fuente-titulos);
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--color-principal);
+            font-weight: 400;
+        }
+
+        .grid-caracteristicas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .caracteristica-item {
+            text-align: center;
+            padding: 30px;
+            transition: var(--transicion-suave);
+        }
+
+        .caracteristica-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .caracteristica-icono {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--color-acento);
+        }
+
+        .caracteristica-item h3 {
+            font-family: var(--fuente-titulos);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--color-principal);
+        }
+
+        .caracteristica-item p {
+            color: var(--color-gris-medio);
+            line-height: 1.8;
+        }
+
+        /* EQUIPO */
+        .seccion-equipo {
+            text-align: center;
+        }
+
+        .seccion-equipo h2 {
+            font-family: var(--fuente-titulos);
+            font-size: 3rem;
+            margin-bottom: 60px;
+            color: var(--color-principal);
+            font-weight: 400;
+        }
+
+        .grid-equipo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .miembro-equipo {
+            background: var(--color-blanco);
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: var(--sombra-suave);
+            transition: var(--transicion-suave);
+        }
+
+        .miembro-equipo:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--sombra-elegante);
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, var(--color-acento) 0%, var(--color-principal) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--color-blanco);
+            font-weight: 700;
+        }
+
+        .miembro-equipo h3 {
+            font-family: var(--fuente-titulos);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--color-principal);
+        }
+
+        .miembro-equipo .cargo {
+            color: var(--color-acento);
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .miembro-equipo p {
+            color: var(--color-gris-medio);
+            line-height: 1.8;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero-nosotros h1 {
+                font-size: 2.5rem;
+            }
+
+            .seccion-historia {
+                grid-template-columns: 1fr;
+            }
+
+            .historia-imagen {
+                height: 300px;
+            }
+
+            .historia-contenido h2,
+            .seccion-caracteristicas h2,
+            .seccion-equipo h2 {
+                font-size: 2rem;
+            }
+
+            .contenedor {
+                padding: 50px 20px;
+            }
+
+            .seccion-caracteristicas {
+                padding: 50px 30px;
+            }
+
+            .enlaces-navegacion {
+                gap: 20px;
+            }
+
+            .enlaces-navegacion a {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CABECERA -->
+    <header class="cabecera-principal">
+        <nav class="navegacion-principal">
+            <a href="index.html" class="logotipo-marca">NOIRS</a>
+            <ul class="enlaces-navegacion">
+                <li class="submenu">
+                    <a href="#">Productos ▾</a>
+                    <ul class="submenu-opciones">
+                        <li><a href="hombre.html">Hombre</a></li>
+                        <li><a href="mujer.html">Mujer</a></li>
+                    </ul>
+                </li>
+                <li><a href="SobreNosotros.html"> Sobre Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero-nosotros">
+        <h1>Nuestra Historia</h1>
+    </section>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="contenedor">
+        
+        <!-- HISTORIA -->
+        <section class="seccion-historia">
+            <div class="historia-contenido">
+                <h2>Quiénes Somos</h2>
+                <p>
+                    NOIRS nació de una pasión por la moda atemporal y la artesanía excepcional. Desde nuestros inicios, hemos estado comprometidos con crear piezas que no solo vistan a nuestros clientes, sino que cuenten historias de elegancia y sofisticación.
+                </p>
+                <p>
+                    Cada prenda que diseñamos es el resultado de un cuidadoso proceso creativo donde combinamos tendencias contemporáneas con técnicas tradicionales. Creemos que la verdadera elegancia trasciende el tiempo y las modas pasajeras.
+                </p>
+                <p>
+                    Nuestro compromiso va más allá de la moda: trabajamos con materiales de alta calidad y promovemos prácticas sostenibles que respetan tanto a las personas como al planeta.
+                </p>
+            </div>
+            <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800&h=1000&fit=crop" alt="Tienda NOIRS" class="historia-imagen">
+        </section>
+
+        <!-- CARACTERÍSTICAS -->
+        <section class="seccion-caracteristicas">
+            <h2>Lo Que Nos Define</h2>
+            <div class="grid-caracteristicas">
+                <div class="caracteristica-item">
+                    <div class="caracteristica-icono">✨</div>
+                    <h3>Calidad Premium</h3>
+                    <p>Seleccionamos cuidadosamente cada material para garantizar durabilidad y comodidad excepcionales.</p>
+                </div>
+                <div class="caracteristica-item">
+                    <div class="caracteristica-icono">🎨</div>
+                    <h3>Diseño Único</h3>
+                    <p>Creamos piezas originales que reflejan personalidad y estilo individual para cada cliente.</p>
+                </div>
+                <div class="caracteristica-item">
+                    <div class="caracteristica-icono">🌱</div>
+                    <h3>Sostenibilidad</h3>
+                    <p>Comprometidos con prácticas responsables que minimizan nuestro impacto ambiental.</p>
+                </div>
+                <div class="caracteristica-item">
+                    <div class="caracteristica-icono">👥</div>
+                    <h3>Atención Personalizada</h3>
+                    <p>Escuchamos tus ideas y trabajamos contigo para crear diseños a medida perfectos.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- EQUIPO -->
+        <section class="seccion-equipo">
+            <h2>Nuestro Equipo</h2>
+            <div class="grid-equipo">
+                <div class="miembro-equipo">
+                    <div class="avatar">A</div>
+                    <h3>Andreina Bermudez</h3>
+                    <p class="cargo">Directora Creativa</p>
+                    <p>Con más de 5 años de experiencia en alta costura, Ana lidera nuestro equipo de diseño con pasión y visión innovadora.</p>
+                </div>
+                <div class="miembro-equipo">
+                    <div class="avatar">V</div>
+                    <h3>Valery Gutierrez</h3>
+                    <p class="cargo">Maestra Sastre</p>
+                    <p>Experta artesana con técnicas tradicionales y modernas, Valery garantiza la perfección en cada puntada.</p>
+                </div>
+                <div class="miembro-equipo">
+                    <div class="avatar">D</div>
+                    <h3>Daniela Hernandez</h3>
+                    <p class="cargo">Especialista en Atención al Cliente</p>
+                    <p>Daniela se asegura de que cada cliente reciba una experiencia excepcional y personalizada en NOIRS.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>

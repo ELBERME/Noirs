@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOIRS | Contacto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-principal: #1a1a1a;
+            --color-secundario: #2c2c2c;
+            --color-acento: #d4af37;
+            --color-texto-claro: #f8f8f8;
+            --color-texto-oscuro: #333333;
+            --color-gris-claro: #f5f5f5;
+            --color-gris-medio: #8a8a8a;
+            --color-blanco: #ffffff;
+            --fuente-titulos: 'Playfair Display', serif;
+            --fuente-texto: 'Inter', sans-serif;
+            --sombra-suave: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --sombra-elegante: 0 20px 60px rgba(0, 0, 0, 0.15);
+            --transicion-suave: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--fuente-texto);
+            background-color: var(--color-gris-claro);
+            color: var(--color-texto-oscuro);
+            line-height: 1.7;
+        }
+
+        /* CABECERA */
+        .cabecera-principal {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--sombra-suave);
+        }
+
+        .navegacion-principal {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .logotipo-marca {
+            font-family: var(--fuente-titulos);
+            font-size: 2rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--color-principal);
+            letter-spacing: -0.5px;
+        }
+
+        .enlaces-navegacion {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .enlaces-navegacion a {
+            text-decoration: none;
+            color: var(--color-texto-oscuro);
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transicion-suave);
+            position: relative;
+            padding: 10px 0;
+        }
+
+        .enlaces-navegacion a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--color-acento);
+            transition: var(--transicion-suave);
+            transform: translateX(-50%);
+        }
+
+        .enlaces-navegacion a:hover {
+            color: var(--color-principal);
+        }
+
+        .enlaces-navegacion a:hover::before {
+            width: 100%;
+        }
+
+        .submenu {
+            position: relative;
+        }
+
+        .submenu-opciones {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            list-style: none;
+            padding: 10px 0;
+            min-width: 150px;
+            border-radius: 5px;
+        }
+
+        .submenu-opciones li {
+            padding: 8px 15px;
+        }
+
+        .submenu-opciones li a {
+            color: black;
+            text-decoration: none;
+            font-weight: 500;
+            text-transform: none;
+        }
+
+        .submenu-opciones li:hover {
+            background: #f0f0f0;
+        }
+
+        .submenu:hover .submenu-opciones {
+            display: block;
+        }
+
+        /* HERO */
+        .hero-contacto {
+            margin-top: 80px;
+            height: 40vh;
+            background: linear-gradient(135deg, var(--color-principal) 0%, var(--color-secundario) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--color-texto-claro);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-contacto::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="%23d4af37" opacity="0.1"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-contacto-contenido {
+            z-index: 1;
+        }
+
+        .hero-contacto h1 {
+            font-family: var(--fuente-titulos);
+            font-size: 4rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .hero-contacto p {
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        /* CONTENEDOR */
+        .contenedor {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 30px;
+        }
+
+        .grid-contacto {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        /* INFORMACIÓN */
+        .info-contacto h2 {
+            font-family: var(--fuente-titulos);
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--color-principal);
+            font-weight: 400;
+        }
+
+        .info-contacto p {
+            font-size: 1.1rem;
+            line-height: 2;
+            color: var(--color-gris-medio);
+            margin-bottom: 40px;
+        }
+
+        .metodos-contacto {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .metodo-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background: var(--color-blanco);
+            border-radius: 15px;
+            box-shadow: var(--sombra-suave);
+            transition: var(--transicion-suave);
+        }
+
+        .metodo-item:hover {
+            transform: translateX(10px);
+            box-shadow: var(--sombra-elegante);
+        }
+
+        .metodo-icono {
+            font-size: 2rem;
+            color: var(--color-acento);
+            min-width: 50px;
+        }
+
+        .metodo-contenido h3 {
+            font-family: var(--fuente-titulos);
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--color-principal);
+        }
+
+        .metodo-contenido p {
+            color: var(--color-gris-medio);
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* FORMULARIO */
+        .formulario-contacto {
+            background: var(--color-blanco);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: var(--sombra-elegante);
+        }
+
+        .formulario-contacto h2 {
+            font-family: var(--fuente-titulos);
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--color-principal);
+            font-weight: 400;
+        }
+
+        .formulario-contacto .subtitulo {
+            color: var(--color-gris-medio);
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--color-texto-oscuro);
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-family: var(--fuente-texto);
+            font-size: 1rem;
+            transition: var(--transicion-suave);
+            background: var(--color-gris-claro);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--color-acento);
+            background: white;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group-archivo {
+            margin-bottom: 25px;
+        }
+
+        .archivo-input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .archivo-input-wrapper input[type="file"] {
+            display: none;
+        }
+
+        .archivo-label {
+            display: inline-block;
+            padding: 12px 25px;
+            background: var(--color-gris-claro);
+            border: 2px dashed var(--color-acento);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: var(--transicion-suave);
+            text-align: center;
+            color: var(--color-gris-medio);
+            flex: 1;
+        }
+
+        .archivo-label:hover {
+            background: var(--color-acento);
+            color: white;
+            border-style: solid;
+        }
+
+        .archivo-nombre {
+            color: var(--color-acento);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .boton-enviar {
+            width: 100%;
+            padding: 18px;
+            background: var(--color-acento);
+            color: var(--color-blanco);
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transicion-suave);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .boton-enviar:hover {
+            background: var(--color-principal);
+            transform: translateY(-3px);
+            box-shadow: var(--sombra-elegante);
+        }
+
+        /* MENSAJE DE ÉXITO */
+        .mensaje-exito {
+            display: none;
+            padding: 20px;
+            background: #27ae60;
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .mensaje-exito.mostrar {
+            display: block;
+            animation: slideDown 0.5s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* SECCIÓN BENEFICIOS */
+        .seccion-beneficios {
+            background: var(--color-blanco);
+            padding: 60px;
+            border-radius: 20px;
+            margin-top: 60px;
+            box-shadow: var(--sombra-suave);
+        }
+
+        .seccion-beneficios h2 {
+            font-family: var(--fuente-titulos);
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--color-principal);
+            font-weight: 400;
+        }
+
+        .grid-beneficios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .beneficio-item {
+            text-align: center;
+        }
+
+        .beneficio-icono {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .beneficio-item h3 {
+            font-family: var(--fuente-titulos);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--color-principal);
+        }
+
+        .beneficio-item p {
+            color: var(--color-gris-medio);
+            line-height: 1.8;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 968px) {
+            .grid-contacto {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-contacto h1 {
+                font-size: 2.5rem;
+            }
+
+            .formulario-contacto {
+                padding: 30px;
+            }
+
+            .seccion-beneficios {
+                padding: 40px 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contenedor {
+                padding: 50px 20px;
+            }
+
+            .enlaces-navegacion {
+                gap: 20px;
+            }
+
+            .enlaces-navegacion a {
+                font-size: 0.8rem;
+            }
+
+            .hero-contacto h1 {
+                font-size: 2rem;
+            }
+
+            .hero-contacto p {
+                font-size: 1rem;
+            }
+
+            .info-contacto h2,
+            .formulario-contacto h2,
+            .seccion-beneficios h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CABECERA -->
+    <header class="cabecera-principal">
+        <nav class="navegacion-principal">
+            <a href="index.html" class="logotipo-marca">NOIRS</a>
+            <ul class="enlaces-navegacion">
+                <li class="submenu">
+                    <a href="#">Productos ▾</a>
+                    <ul class="submenu-opciones">
+                        <li><a href="hombre.html">Hombre</a></li>
+                        <li><a href="mujer.html">Mujer</a></li>
+                    </ul>
+                </li>
+                <li><a href="SobreNosotros.html">Sobre Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero-contacto">
+        <div class="hero-contacto-contenido">
+            <h1>Contáctanos</h1>
+            <p>Convierte tus ideas en realidad</p>
+        </div>
+    </section>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="contenedor">
+        
+        <div class="grid-contacto">
+            
+            <!-- INFORMACIÓN -->
+            <div class="info-contacto">
+                <h2>¿Tienes un Diseño en Mente?</h2>
+                <p>
+                    En NOIRS, entendemos que cada persona tiene su propio estilo único. Si no encuentras lo que buscas en nuestro catálogo, ¡no te preocupes! Creamos prendas personalizadas basadas en tus diseños e ideas.
+                </p>
+                <p>
+                    Solo pagas por el envío y la mano de obra. Nosotros nos encargamos de hacer realidad tu visión con materiales de alta calidad y acabados profesionales.
+                </p>
+
+                <div class="metodos-contacto">
+                    <div class="metodo-item">
+                        <div class="metodo-icono">📧</div>
+                        <div class="metodo-contenido">
+                            <h3>Email</h3>
+                            <p>contacto@noirs.com</p>
+                        </div>
+                    </div>
+                    <div class="metodo-item">
+                        <div class="metodo-icono">📱</div>
+                        <div class="metodo-contenido">
+                            <h3>WhatsApp</h3>
+                            <p>+57 300 123 4567</p>
+                        </div>
+                    </div>
+                    <div class="metodo-item">
+                        <div class="metodo-icono">📍</div>
+                        <div class="metodo-contenido">
+                            <h3>Ubicación</h3>
+                            <p>Valledupar, Cesar, Colombia</p>
+                        </div>
+                    </div>
+                    <div class="metodo-item">
+                        <div class="metodo-icono">🕐</div>
+                        <div class="metodo-contenido">
+                            <h3>Horario</h3>
+                            <p>Lun - Vie: 9:00 AM - 6:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FORMULARIO -->
+            <div class="formulario-contacto">
+                <h2>Solicita tu Diseño</h2>
+                <p class="subtitulo">Completa el formulario y nos pondremos en contacto contigo</p>
+                
+                <div class="mensaje-exito" id="mensajeExito">
+                    ¡Tu solicitud ha sido enviada exitosamente! Nos pondremos en contacto contigo pronto.
+                </div>
+
+                <form id="formContacto">
+                    <div class="form-group">
+                        <label for="nombre">Nombre completo *</label>
+                        <input type="text" id="nombre" name="nombre" required placeholder="Ej: Juan Pérez">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Correo electrónico *</label>
+                        <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono">Teléfono / WhatsApp *</label>
+                        <input type="tel" id="telefono" name="telefono" required placeholder="+57 300 123 4567">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tipoPrenda">Tipo de prenda *</label>
+                        <select id="tipoPrenda" name="tipoPrenda" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="camisa">Camisa / Blusa</option>
+                            <option value="pantalon">Pantalón</option>
+                            <option value="vestido">Vestido</option>
+                            <option value="chaqueta">Chaqueta</option>
+                            <option value="traje">Traje completo</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="descripcion">Describe tu diseño *</label>
+                        <textarea id="descripcion" name="descripcion" required placeholder="Cuéntanos sobre tu idea: colores, estilo, materiales preferidos, ocasión de uso, etc."></textarea>
+                    </div>
+
+                    <div class="form-group-archivo">
+                        <label for="archivo">Adjunta una imagen de referencia (opcional)</label>
+                        <div class="archivo-input-wrapper">
+                            <input type="file" id="archivo" name="archivo" accept="image/*">
+                            <label for="archivo" class="archivo-label" id="archivoLabel">
+                                📎 Seleccionar imagen
+                            </label>
+                        </div>
+                        <span class="archivo-nombre" id="archivoNombre"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ciudad">Ciudad de entrega *</label>
+                        <input type="text" id="ciudad" name="ciudad" required placeholder="Ej: Valledupar">
+                    </div>
+
+                    <button type="submit" class="boton-enviar">Enviar Solicitud</button>
+                </form>
+            </div>
+
+        </div>
+
+        <!-- BENEFICIOS -->
+        <section class="seccion-beneficios">
+            <h2>¿Por Qué Elegir Diseño Personalizado?</h2>
+            <div class="grid-beneficios">
+                <div class="beneficio-item">
+                    <div class="beneficio-icono">✨</div>
+                    <h3>100% Único</h3>
+                    <p>Tu diseño será exclusivo, nadie más tendrá una prenda igual a la tuya.</p>
+                </div>
+                <div class="beneficio-item">
+                    <div class="beneficio-icono">💰</div>
+                    <h3>Precio Justo</h3>
+                    <p>Solo pagas envío y mano de obra. Sin costos ocultos ni sorpresas.</p>
+                </div>
+                <div class="beneficio-item">
+                    <div class="beneficio-icono">🎨</div>
+                    <h3>Tu Visión</h3>
+                    <p>Trabajamos contigo en cada paso para asegurar que el resultado sea perfecto.</p>
+                </div>
+                <div class="beneficio-item">
+                    <div class="beneficio-icono">⚡</div>
+                    <h3>Proceso Rápido</h3>
+                    <p>Respuesta en 24 horas y producción eficiente sin comprometer calidad.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // Manejo del formulario
+        const form = document.getElementById('formContacto');
+        const mensajeExito = document.getElementById('mensajeExito');
+        const archivoInput = document.getElementById('archivo');
+        const archivoLabel = document.getElementById('archivoLabel');
+        const archivoNombre = document.getElementById('archivoNombre');
+
+        // Mostrar nombre del archivo seleccionado
+        archivoInput.addEventListener('change', function(e) {
+            if (e.target.files.length > 0) {
+                const fileName = e.target.files[0].name;
+                archivoLabel.textContent = '✓ Archivo seleccionado';
+                archivoNombre.textContent = fileName;
+            } else {
+                archivoLabel.textContent = '📎 Seleccionar imagen';
+                archivoNombre.textContent = '';
+            }
+        });
+
+        // Envío del formulario (simulado)
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simular envío
+            const datosFormulario = {
+                nombre: document.getElementById('nombre').value,
+                email: document.getElementById('email').value,
+                telefono: document.getElementById('telefono').value,
+                tipoPrenda: document.getElementById('tipoPrenda').value,
+                descripcion: document.getElementById('descripcion').value,
+                ciudad: document.getElementById('ciudad').value,
+                archivo: archivoInput.files.length > 0 ? archivoInput.files[0].name : 'Sin archivo'
+            };
+
+            console.log('Datos de la solicitud:', datosFormulario);
+
+            // Mostrar mensaje de éxito
+            mensajeExito.classList.add('mostrar');
+            form.reset();
+            archivoLabel.textContent = '📎 Seleccionar imagen';
+            archivoNombre.textContent = '';
+
+            // Scroll suave hacia el mensaje
+            mensajeExito.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+            // Ocultar mensaje después de 5 segundos
+            setTimeout(() => {
+                mensajeExito.classList.remove('mostrar');
+            }, 5000);
+        });
+
+        // Validación en tiempo real
+        const inputs = form.querySelectorAll('input, textarea, select');
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.value.trim() === '' && this.hasAttribute('required')) {
+                    this.style.borderColor = '#e74c3c';
+                } else {
+                    this.style.borderColor = '#e0e0e0';
+                }
+            });
+
+            input.addEventListener('input', function() {
+                if (this.value.trim() !== '') {
+                    this.style.borderColor = '#27ae60';
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

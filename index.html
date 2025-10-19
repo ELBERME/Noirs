@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOIRS</title>
+    <link rel="stylesheet" href="index.css">
+    <!-- Fuentes elegantes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ========== CABECERA PRINCIPAL ========== -->
+    <header class="cabecera-principal">
+        <nav class="navegacion-principal contenedor-principal">
+            <a href="#" class="logotipo-marca">NOIRS</a>
+            <ul class="enlaces-navegacion">
+                <li class="submenu">
+                    <a href="#">Productos ▾</a>
+                    <ul class="submenu-opciones">
+                        <li><a href="hombre.html">Hombre</a></li>
+                        <li><a href="mujer.html">Mujer</a></li>
+                    </ul>
+                </li>
+                <li><a href="SobreNosotros.html">Sobre Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ========== SECCIÓN HERO CON VIDEO ========== -->
+    <section class="seccion-hero">
+        <!-- Overlay negro inicial -->
+        <div class="overlay-negro"></div>
+        
+        <!-- Video de fondo (comienza oculto) -->
+        <video id="videoFondo" autoplay loop muted playsinline class="video-fondo" preload="auto">
+            <source src="Video.mp4" type="video/mp4">
+            Tu navegador no soporta la reproducción de videos.
+        </video>
+        
+        <!-- Contenido del hero -->
+        <div class="contenido-hero">
+            <h1 class="titulo-principal">Elegancia Atemporal</h1>
+            <p class="subtitulo-hero">Donde la sofisticación encuentra la contemporaneidad</p>
+            <a href="NOIRS.html" class="boton-cta">Descubrir Colección</a>
+        </div>
+    </section>
+
+    <!-- ========== FILOSOFÍA CORPORATIVA ========== -->
+    <section class="seccion-filosofia" id="filosofia">
+        <div class="contenedor-principal">
+            <h2 class="titulo-seccion">Nuestra Esencia</h2>
+            <div class="grilla-filosofia">
+                
+                <article class="item-filosofia">
+                    <h3 class="titulo-item">Misión</h3>
+                    <p class="descripcion-item">Crear piezas atemporales que trasciendan las tendencias pasajeras, vistiendo a personas que valoran la excelencia, la autenticidad y el diseño consciente. Cada prenda cuenta una historia de artesanía excepcional.</p>
+                </article>
+
+                <article class="item-filosofia">
+                    <h3 class="titulo-item">Visión</h3>
+                    <p class="descripcion-item">Establecernos como la referencia mundial en moda premium consciente, liderando una revolución silenciosa donde la elegancia se encuentra con la responsabilidad social y ambiental.</p>
+                </article>
+
+                <article class="item-filosofia valores">
+                    <h3 class="titulo-item">Valores</h3>
+                    <div class="descripcion-item">
+                        <p><strong>Excelencia: </strong>Perfección en cada detalle</p>
+                        <p><strong>Autenticidad: </strong>Diseño genuino y personal</p>
+                        <p><strong>Consciencia: </strong>Moda responsable y sostenible</p>
+                        <p><strong>Elegancia: </strong>Sofisticación en su forma más pura</p>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Script para asegurar reproducción del video -->
+    <script>
+        // Asegurar que el video se reproduce
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('videoFondo');
+            
+            // Intentar reproducir el video
+            const playPromise = video.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    console.log('Video reproduciendo correctamente');
+                }).catch(error => {
+                    console.log('Error al reproducir video:', error);
+                    // Si falla, intentar reproducir cuando el usuario interactúe
+                    document.body.addEventListener('click', () => {
+                        video.play();
+                    }, { once: true });
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
